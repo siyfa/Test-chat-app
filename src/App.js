@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Chat1 from "./page/chat1";
+import Chat2 from "./page/chat2";
+import OrderUser from  "./page/orderUser";
+import OrderDriver from "./page/orderDriver";
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+  return ( 
+    <div className = "App" >
+      <Router>
+        <Routes>
+          <Route exact path='/' element={<Chat1/>}/>          
+          <Route exact path='/chat2' element={<Chat2/>}/>
+          <Route exact path='/order/for/user' element={<OrderUser/>}/>
+          <Route exact path='/order/for/driver' element={<OrderDriver/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
